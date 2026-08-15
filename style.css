@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #160014, #3b082d, #17001d);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Floating background hearts */
+body::before {
+    content: "❤️   💕   💗   💖   ❤️   💕";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 35px;
+    line-height: 100px;
+    word-spacing: 30px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Loading Screen */
+#loading {
+    position: fixed;
+    inset: 0;
+    background: #12000f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+}
+
+#loading .heart {
+    font-size: 75px;
+    animation: heartbeat 1s infinite;
+}
+
+#loading h2 {
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+#loading p {
+    margin-top: 10px;
+    color: #ffb6d9;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+/* Main content */
+#mainContent {
+    display: block;
+}
+
+/* Sections */
+.hero,
+.section {
+    min-height: 100vh;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Glass card */
+.glass {
+    width: 100%;
+    max-width: 700px;
+    padding: 40px 25px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.small-text {
+    color: #ffb6d9;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(38px, 10vw, 70px);
+    margin-bottom: 20px;
+    text-shadow: 0 0 25px rgba(255, 100, 180, 0.5);
+}
+
+h2 {
+    font-size: clamp(30px, 8vw, 50px);
+    margin-bottom: 25px;
+    color: #ffd1e8;
+}
+
+p {
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 12px auto;
+    color: #ffeaf4;
+}
+
+/* Buttons */
+button {
+    margin-top: 30px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff4f9a, #ff176f);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 23, 111, 0.35);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Media box */
+.media-box {
+    width: 100%;
+    max-width: 600px;
+    min-height: 250px;
+    margin-top: 25px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px dashed rgba(255, 182, 217, 0.5);
+}
+
+/* Gallery */
+#gallery {
+    width: 100%;
+    max-width: 700px;
+    min-height: 200px;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+/* YES / NO buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#noBtn {
+    background: #555;
+    position: relative;
+}
+
+/* Final message */
+#final h1 {
+    color: #ff9ac8;
+}
+
+#final {
+    padding-bottom: 100px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .hero,
+    .section {
+        padding: 25px 15px;
+    }
+
+    .glass {
+        padding: 30px 18px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 13px 22px;
+    }
+  }
