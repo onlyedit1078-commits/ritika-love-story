@@ -1,283 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>For Ritika ❤️</title>
+<title>For Ritika ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- Loading Screen -->
-    <div id="loading">
-        <div class="heart">❤️</div>
-        <h2>A Special Story...</h2>
-        <p>Only For Ritika 💖</p>
+<!-- ================= LOADING ================= -->
+
+<div id="loading">
+
+    <div class="heart">❤️</div>
+
+    <h2>A Little Story...</h2>
+
+    <p>Written only for Ritika 💖</p>
+
+</div>
+
+
+<!-- ================= MUSIC ================= -->
+
+<audio id="music" loop>
+    <source src="Raataan Lambiyan Shershaah 320 Kbps.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ================= MAIN ================= -->
+
+<main id="mainContent">
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="glass">
+
+        <p class="small-text">
+            A story written by Aditya ❤️
+        </p>
+
+        <h1>
+            For My Ritika ❤️
+        </h1>
+
+        <img
+            src="IMG-20260816-WA0011.jpg"
+            class="hero-photo"
+            alt="Ritika"
+        >
+
+        <p>
+            Kuch kahaniyan plan nahi hoti...
+            bas waqt ke saath dil mein ban jaati hain.
+        </p>
+
+        <button onclick="startStory()">
+            💌 Open My Heart
+        </button>
+
     </div>
 
+</section>
 
-    <!-- Main Website -->
-    <main id="mainContent">
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="glass">
+<!-- ================= STORY ================= -->
 
-                <p class="small-text">A story written by Aditya ❤️</p>
+<section id="story" class="section">
 
-                <h1>For My Ritika ❤️</h1>
+    <h2>Ek Kahani... ❤️</h2>
 
-                <p>
-                    Kuch kahaniyan plan nahi hoti...
-                    bas waqt ke saath dil mein ban jaati hain.
-                </p>
+    <img
+        src="IMG-20260816-WA0009.jpg"
+        class="story-photo"
+        alt="Our memory"
+    >
 
-                <button onclick="nextSection('story')">
-                    Hamari Kahani 💕
-                </button>
+    <p>
+        2 October 2022...
+    </p>
 
-            </div>
-        </section>
+    <p>
+        Shayad us din humne ek dusre se baat nahi ki thi,
+        lekin ek dusre ko dekha zaroor tha.
+    </p>
 
+    <p>
+        Tum apni masi ke dekhouti mein aayi thi,
+        aur main apne uncle ke saath.
+    </p>
 
-        <!-- OUR STORY -->
-        <section id="story" class="section">
+    <p>
+        Pehli baar tumhe dekha...
+        aur pata nahi kyun,
+        tum tabhi achhi lag gayi thi.
+    </p>
 
-            <h2>Hamari Kahani ❤️</h2>
+    <p>
+        Phir shaadi mein dobara milna hua...
+        aur pata hi nahi chala kab tum
+        mere dil mein apni jagah bana gayi.
+    </p>
 
-            <p>
-                2 October 2022...
-            </p>
+    <button onclick="showSection('dance')">
+        23 May 2023... 💃
+    </button>
 
-            <p>
-                Shayad us din humne ek dusre se baat nahi ki thi,
-                lekin ek dusre ko dekha zaroor tha.
-            </p>
+</section>
 
-            <p>
-                Tum apni masi ke dekhouti mein aayi thi,
-                aur main apne uncle ke saath.
-                Pehli baar tumhe dekha...
-                aur pata nahi kyun, tum achhi lag gayi thi.
-            </p>
 
-            <p>
-                Phir shaadi mein dobara milna hua...
-                aur dheere-dheere tum mere dil mein apni jagah banati gayi.
-            </p>
+<!-- ================= DANCE ================= -->
 
-            <button onclick="nextSection('dance')">
-                Aur ek special din tha... 💃
-            </button>
+<section id="dance" class="section">
 
-        </section>
+    <h2>23 May 2023 💃❤️</h2>
 
+    <p>
+        Us din hum pehli baar properly mile,
+        baat bhi ki...
+    </p>
 
-        <!-- DANCE STORY -->
-        <section id="dance" class="section">
+    <p>
+        Aur maine tumhara dance dekha.
+    </p>
 
-            <h2>23 May 2023 💃❤️</h2>
+    <p>
+        Sach bolun?
+        Tabse main tumhare dance ka fan ho gaya. 😁❤️
+    </p>
 
-            <p>
-                Us din hum pehli baar properly mile,
-                baat bhi ki...
-            </p>
+    <video
+        class="dance-video"
+        controls
+        playsinline
+        preload="metadata"
+    >
+        <source
+            src="VID-20260816-WA0021.mp4"
+            type="video/mp4"
+        >
+        Your browser does not support video.
+    </video>
 
-            <p>
-                Aur maine tumhara dance dekha.
-            </p>
+    <button onclick="showSection('universe')">
+        Tumhare liye ek Universe hai... 🌌
+    </button>
 
-            <p>
-                Sach bolun?
-                Tabse main tumhare dance ka fan ho gaya. 😁❤️
-            </p>
+</section>
 
-            <!-- Dance video yahan baad mein add hoga -->
-            <div class="media-box">
-                <p>💃 Tumhara special dance video yahan aayega 💃</p>
-            </div>
 
-            <button onclick="nextSection('memories')">
-                Kuch aur yaadein dekho 📸
-            </button>
+<!-- ================= UNIVERSE ================= -->
 
-        </section>
+<section id="universe" class="section universe-section">
 
+    <h2>
+        My Universe... 🌌❤️
+    </h2>
 
-        <!-- MEMORIES -->
-        <section id="memories" class="section">
+    <p>
+        Agar meri duniya ko ek naam dena ho...
+        toh woh naam tumhara hoga.
+    </p>
 
-            <h2>Our Memories 📸❤️</h2>
+    <div class="universe-grid">
 
-            <p>
-                Hamari kuch special photos...
-            </p>
+        <img
+            src="universe/772894666_17961034641178776_7667627705013089055_n.webp"
+            alt="Universe memory"
+        >
 
-            <!-- Photos baad mein yahan add hongi -->
-            <div id="gallery">
-                <p>📸 Photos yahan aayengi</p>
-            </div>
+        <img
+            src="universe/770739422_17961034662178776_3349468360289440340_n.webp"
+            alt="Universe memory"
+        >
 
-            <button onclick="nextSection('things')">
-                Tumhare baare mein kuch ❤️
-            </button>
+        <img
+            src="universe/772604503_17961034671178776_6504707746913516171_n.webp"
+            alt="Universe memory"
+        >
 
-        </section>
+        <img
+            src="universe/770729883_17961034686178776_4277253538659684684_n.webp"
+            alt="Universe memory"
+        >
 
+        <img
+            src="universe/772120467_17961034695178776_3984743179237403040_n.webp"
+            alt="Universe memory"
+        >
 
-        <!-- WHAT I LIKE ABOUT YOU -->
-        <section id="things" class="section">
+        <img
+            src="universe/771757347_17961034704178776_5642111454751598667_n.webp"
+            alt="Universe memory"
+        >
 
-            <h2>Mujhe Tum Mein Kya Pasand Hai? ❤️</h2>
+    </div>
 
-            <p>
-                Sabse pehle...
-                tum mera gussa seh leti ho. 😁
-            </p>
+    <button onclick="showSection('memories')">
+        Hamari memories... 📸
+    </button>
 
-            <p>
-                Tum ek achhi ladki ho,
-                aur sabse important baat —
-                tum ek achhi insaan ho.
-            </p>
+</section>
 
-            <p>
-                Mere hisaab se kisi bhi relationship mein
-                sabse important cheez hoti hai
-                ki saamne wala dil ka achha ho.
-            </p>
 
-            <p>
-                Aur ye quality tum mein hai. ❤️
-            </p>
+<!-- ================= MEMORIES ================= -->
 
-            <button onclick="nextSection('message')">
-                Ek secret message hai... 🤫
-            </button>
+<section id="memories" class="section">
 
-        </section>
+    <h2>
+        Little Memories 📸❤️
+    </h2>
 
+    <p>
+        Har photo ke peeche ek yaad hai...
+        aur har yaad mein tum ho.
+    </p>
 
-        <!-- LOVE MESSAGE -->
-        <section id="message" class="section">
+    <div class="memory-box">
 
-            <h2>Hello Cutie... ❤️</h2>
+        <p>
+            📸 Hamari memories yahan ek beautiful
+            gallery ke form mein aayengi.
+        </p>
 
-            <p>
-                Pata hai mai na tumse itna pyaar karta hoon
-                jitna tum expect nahi karti hogi.
-            </p>
+    </div>
 
-            <p>
-                Pyaar dikhata nahi hoon...
-                kyunki bhaw khane lagogi. 😁
-            </p>
+    <button onclick="showSection('love')">
+        Tumhare baare mein... ❤️
+    </button>
 
-            <p>
-                Halaki bhaw khana ladki ki ada hai,
-                par tum bhaw nahi khati...
-                isliye toh hum tum pe fida hain. ❤️
-            </p>
+</section>
 
-            <p>
-                Kabhi-kabhi bhaw kha sakti ho waise. 😜
-            </p>
 
-            <p>
-                Maine waqt aane par apna pyaar tumhe dikhaya bhi hai.
-            </p>
+<!-- ================= LOVE ================= -->
 
-            <p>
-                Lekin ek baat yaad rakhna...
-                jo insaan apna pyaar har waqt nahi dikhata,
-                iska matlab ye nahi ki woh pyaar nahi karta.
-            </p>
+<section id="love" class="section">
 
-            <p>
-                Kabhi-kabhi bas kisi ka pyaar karne ka tareeka
-                doosron se alag hota hai.
-            </p>
+    <h2>
+        Tum Mujhe Itni Pasand Kyun Ho? ❤️
+    </h2>
 
-            <button onclick="nextSection('question')">
-                Ek sawaal hai... ❤️
-            </button>
+    <img
+        src="IMG-20260816-WA0006.jpg"
+        class="love-photo"
+        alt="Ritika"
+    >
 
-        </section>
+    <p>
+        Sabse pehle...
+        tum mera gussa seh leti ho. 😁
+    </p>
 
+    <p>
+        Aur sach kahun toh tum ek achhi ladki ho.
+    </p>
 
-        <!-- YES / NO QUESTION -->
-        <section id="question" class="section">
+    <p>
+        Lekin mere liye sabse important baat ye hai
+        ki tum ek achhi insaan ho.
+    </p>
 
-            <h2>Ritika... ❤️</h2>
+    <p>
+        Kisi bhi relationship mein
+        ek achhe dil wala partner milna
+        sabse badi baat hoti hai.
+    </p>
 
-            <p>
-                Kya tum Aditya ko apne dil mein
-                hamesha ke liye rakhogi? 🥺❤️
-            </p>
+    <p>
+        Aur woh cheez tum mein hai. ❤️
+    </p>
 
-            <div class="buttons">
+    <button onclick="showSection('cutie')">
+        Hello Cutie... 😁
+    </button>
 
-                <button onclick="yesClicked()">
-                    YES ❤️
-                </button>
+</section>
 
-                <button id="noBtn" onclick="noClicked()">
-                    NO 😜
-                </button>
 
-            </div>
+<!-- ================= CUTIE MESSAGE ================= -->
 
-        </section>
+<section id="cutie" class="section">
 
+    <h2>
+        Hello Cutie... ❤️
+    </h2>
 
-        <!-- FINAL -->
-        <section id="final" class="section">
+    <p>
+        Pata hai mai na tumse itna pyaar karta hoon
+        jitna tum expect nahi karti hogi.
+    </p>
 
-            <h2>Ek Secret Batाऊँ? 🤫❤️</h2>
+    <p>
+        Pyaar dikhata nahi hoon...
+        kyunki bhaw khane lagogi. 😁
+    </p>
 
-            <p>
-                I LOVE YOU. ❤️
-            </p>
+    <p>
+        Halaki bhaw khana ladki ki ada hai...
+        par tum bhaw nahi khati,
+        isliye toh hum tum pe fida hain. ❤️
+    </p>
 
-            <p>
-                Kisi ko batana nahi... 😊
-            </p>
+    <p>
+        Kabhi-kabhi bhaw kha sakti ho waise. 😜
+    </p>
 
-            <p>
-                Aur haan...
-                tumko pyaar karne wala
-                mere se better iss puri duniya mein
-                kahin nahi milega.
-            </p>
+    <p>
+        Maine waqt aane par apna pyaar tumhe dikhaya bhi hai.
+    </p>
 
-            <h1>I LOVE YOU RITIKA ❤️</h1>
+    <p>
+        Lekin jo insaan har waqt apna pyaar nahi dikhata,
+        iska matlab ye nahi ki woh pyaar nahi karta.
+    </p>
 
-            <p>
-                From the bottom of my heart...
-            </p>
+    <p>
+        Kabhi-kabhi bas kisi ka
+        pyaar karne ka tareeka alag hota hai.
+    </p>
 
-            <p>
-                Ye ChatGPT se nahi likhwaya hai.
-                Ye maine khud bola hai,
-                isliye ye dil se nikla hai —
-                sirf tumhare liye. ❤️
-            </p>
+    <button onclick="showSection('question')">
+        Ek sawaal hai... 🥺
+    </button>
 
-            <h2>Once again...</h2>
+</section>
 
-            <h1>I LOVE YOU 😘</h1>
 
-            <p>Your Aditya ❤️</p>
+<!-- ================= QUESTION ================= -->
 
-        </section>
+<section id="question" class="section">
 
-    </main>
+    <h2>
+        Ritika... ❤️
+    </h2>
 
+    <p>
+        Kya tum Aditya ke saath
+        ye beautiful journey continue karogi? 🥺❤️
+    </p>
 
-    <script src="script.js"></script>
+    <div class="buttons">
+
+        <button onclick="yesClicked()">
+            💖 YES
+        </button>
+
+        <button id="noBtn" onclick="moveNoButton()">
+            🥺 NO
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL ================= -->
+
+<section id="final" class="section final-section">
+
+    <h2>
+        Ek Secret Bataun? 🤫❤️
+    </h2>
+
+    <p>
+        I LOVE YOU.
+    </p>
+
+    <p>
+        Kisi ko batana nahi... 😊
+    </p>
+
+    <p>
+        Future ka abhi nahi pata
+        ki aage kya hoga...
+    </p>
+
+    <p>
+        Lekin itna zaroor pata hai...
+        tumko pyaar karne wala
+        mere se better iss puri duniya mein
+        kahin nahi milega. ❤️
+    </p>
+
+    <h1>
+        I LOVE YOU RITIKA ❤️
+    </h1>
+
+    <p>
+        From the bottom of my heart...
+    </p>
+
+    <p>
+        Ye ChatGPT se nahi likhwaya hai.
+        Ye maine khud bola hai,
+        isliye ye dil se nikla hai —
+        sirf tumhare liye.
+    </p>
+
+    <h2>
+        Once Again...
+    </h2>
+
+    <h1>
+        I LOVE YOU 😘
+    </h1>
+
+    <h3>
+        Your Aditya ❤️
+    </h3>
+
+</section>
+
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
