@@ -1,178 +1,330 @@
-// ===============================
-// PAGE LOADING
-// ===============================
+/* =========================
+   LOADING SCREEN
+========================= */
 
-window.addEventListener("load", () => {
+const loading = document.getElementById("loading");
 
-    setTimeout(() => {
+setTimeout(() => {
+    if (loading) {
+        loading.style.opacity = "0";
 
-        const loading = document.getElementById("loading");
-
-        if (loading) {
+        setTimeout(() => {
             loading.style.display = "none";
-        }
-
-    }, 2500);
-
-});
+        }, 600);
+    }
+}, 2500);
 
 
-// ===============================
-// SECTION NAVIGATION
-// ===============================
+/* =========================
+   MUSIC
+========================= */
 
-function nextSection(sectionId) {
+const music = document.getElementById("music");
 
-    const section = document.getElementById(sectionId);
+function startStory() {
 
-    if (section) {
-
-        section.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
+    if (music) {
+        music.play().catch(() => {});
     }
 
+    showSection("story");
 }
 
 
-// ===============================
-// YES BUTTON
-// ===============================
+/* =========================
+   SECTION NAVIGATION
+========================= */
 
-function yesClicked() {
+function showSection(id) {
 
-    const finalSection = document.getElementById("final");
+    const section = document.getElementById(id);
 
-    if (finalSection) {
+    if (!section) return;
 
-        finalSection.scrollIntoView({
-            behavior: "smooth"
-        });
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
 
+
+/* =========================
+   15 PHOTO MEMORY GALLERY
+========================= */
+
+const photos = [
+
+    "IMG-20260816-WA0002.jpg",
+    "IMG-20260816-WA0005.jpg",
+    "IMG-20260816-WA0006.jpg",
+    "IMG-20260816-WA0007.jpg",
+    "IMG-20260816-WA0008.jpg",
+    "IMG-20260816-WA0009.jpg",
+    "IMG-20260816-WA0010.jpg",
+    "IMG-20260816-WA0011.jpg",
+    "IMG-20260816-WA0012.jpg",
+    "IMG-20260816-WA0013.jpg",
+    "IMG-20260816-WA0014.jpg",
+    "IMG-20260816-WA0015.jpg",
+    "IMG-20260816-WA0017.jpg",
+    "IMG-20260816-WA0018.jpg",
+    "IMG-20260816-WA0019.jpg"
+
+];
+
+let currentPhoto = 0;
+
+
+/* =========================
+   CREATE GALLERY
+========================= */
+
+const memoryBox = document.querySelector(".memory-box");
+
+if (memoryBox) {
+
+    memoryBox.innerHTML = `
+
+        <div class="photo-slider">
+
+            <img
+                id="memorySlide"
+                src="${photos[0]}"
+                alt="Our beautiful memory"
+            >
+
+            <div class="photo-counter">
+                1 / ${photos.length}
+            </div>
+
+        </div>
+
+        <div class="slider-buttons">
+
+            <button id="previousPhoto">
+                ❤️ Previous
+            </button>
+
+            <button id="nextPhoto">
+                Next ❤️
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   PHOTO SLIDER
+========================= */
+
+function changePhoto(direction) {
+
+    currentPhoto += direction;
+
+    if (currentPhoto >= photos.length) {
+        currentPhoto = 0;
     }
 
-    createHearts();
+    if (currentPhoto < 0) {
+        currentPhoto = photos.length - 1;
+    }
 
-}
+    const image = document.getElementById("memorySlide");
+    const counter = document.querySelector(".photo-counter");
 
+    if (image) {
 
-// ===============================
-// NO BUTTON
-// ===============================
-
-function noClicked() {
-
-    const noBtn = document.getElementById("noBtn");
-
-    if (!noBtn) return;
-
-    noBtn.style.position = "fixed";
-
-    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-
-    const randomX = Math.max(10, Math.random() * maxX);
-    const randomY = Math.max(10, Math.random() * maxY);
-
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-
-}
-
-
-// ===============================
-// MOVING HEARTS
-// ===============================
-
-function createHearts() {
-
-    for (let i = 0; i < 25; i++) {
+        image.style.opacity = "0";
 
         setTimeout(() => {
 
-            const heart = document.createElement("div");
+            image.src = photos[currentPhoto];
 
-            heart.innerHTML = ["❤️", "💖", "💕", "💗", "💘"][
-                Math.floor(Math.random() * 5)
-            ];
+            image.style.opacity = "1";
 
-            heart.style.position = "fixed";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.bottom = "-30px";
-            heart.style.fontSize =
-                (18 + Math.random() * 25) + "px";
+        }, 200);
 
-            heart.style.pointerEvents = "none";
-            heart.style.zIndex = "10000";
+    }
 
-            heart.style.transition =
-                "transform 4s linear, opacity 4s linear";
+    if (counter) {
 
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-
-                heart.style.transform =
-                    `translateY(-${window.innerHeight + 100}px)`;
-
-                heart.style.opacity = "0";
-
-            }, 50);
-
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 4200);
-
-        }, i * 100);
+        counter.textContent =
+            `${currentPhoto + 1} / ${photos.length}`;
 
     }
 
 }
 
 
-// ===============================
-// CONTINUOUS SMALL HEARTS
-// ===============================
+const nextPhoto = document.getElementById("nextPhoto");
+const previousPhoto = document.getElementById("previousPhoto");
+
+if (nextPhoto) {
+
+    nextPhoto.addEventListener("click", () => {
+
+        changePhoto(1);
+
+    });
+
+}
+
+if (previousPhoto) {
+
+    previousPhoto.addEventListener("click", () => {
+
+        changePhoto(-1);
+
+    });
+
+}
+
+
+/* =========================
+   AUTOMATIC SLIDER
+========================= */
+
+setInterval(() => {
+
+    changePhoto(1);
+
+}, 5000);
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+function yesClicked() {
+
+    if (music) {
+        music.play().catch(() => {});
+    }
+
+    showSection("final");
+
+    setTimeout(() => {
+
+        alert(
+            "❤️ Thank You Ritika ❤️\n\n" +
+            "I promise I'll always love you.\n\n" +
+            "- Your Aditya"
+        );
+
+    }, 900);
+
+}
+
+
+/* =========================
+   RUNNING NO BUTTON
+========================= */
+
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton() {
+
+    if (!noBtn) return;
+
+    const container = document.querySelector(".buttons");
+
+    if (!container) return;
+
+    const maxX =
+        container.clientWidth - noBtn.offsetWidth - 10;
+
+    const maxY =
+        container.clientHeight - noBtn.offsetHeight - 10;
+
+    const x =
+        Math.max(5, Math.random() * maxX);
+
+    const y =
+        Math.max(5, Math.random() * maxY);
+
+    noBtn.style.position = "absolute";
+
+    noBtn.style.left = x + "px";
+
+    noBtn.style.top = y + "px";
+
+}
+
+
+/* =========================
+   NO BUTTON ALSO RUNS
+   WHEN MOUSE COMES NEAR
+========================= */
+
+if (noBtn) {
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+}
+
+
+/* =========================
+   BACKGROUND HEARTS
+========================= */
 
 setInterval(() => {
 
     const heart = document.createElement("div");
 
-    heart.innerHTML = "💗";
+    heart.innerHTML =
+        Math.random() > .5 ? "❤️" : "💖";
 
     heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-20px";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.bottom = "-30px";
 
     heart.style.fontSize =
-        (12 + Math.random() * 18) + "px";
+        (14 + Math.random() * 20) + "px";
 
-    heart.style.opacity = "0.7";
     heart.style.pointerEvents = "none";
-    heart.style.zIndex = "999";
+
+    heart.style.zIndex = "1";
+
+    heart.style.opacity = ".7";
 
     heart.style.transition =
-        "transform 6s linear, opacity 6s linear";
+        "transform 5s linear, opacity 5s linear";
 
     document.body.appendChild(heart);
 
-    setTimeout(() => {
+    requestAnimationFrame(() => {
 
         heart.style.transform =
-            `translateY(-${window.innerHeight + 100}px)`;
+            "translateY(-110vh) rotate(360deg)";
 
         heart.style.opacity = "0";
 
-    }, 50);
+    });
 
     setTimeout(() => {
 
         heart.remove();
 
-    }, 6200);
+    }, 5000);
 
 }, 900);
+
+
+/* =========================
+   SMOOTH PAGE START
+========================= */
+
+window.addEventListener("load", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
+
+});
